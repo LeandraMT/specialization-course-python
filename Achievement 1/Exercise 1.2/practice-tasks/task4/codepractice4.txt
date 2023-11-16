@@ -1,0 +1,5 @@
+str3[3:] // returns 'you?'
+str3[-3:] // returns 'hello'
+str3[2:9:3] // returns nothing?
+str3[::-2] // returns 'how'
+str3[2:8] // returns 'are you?'
