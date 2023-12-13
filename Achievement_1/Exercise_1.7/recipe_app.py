@@ -35,11 +35,11 @@ class Recipe(Base):
 
     def __str__(self):
         return (
-            f"Recipe ID: " + self.id + "\n"
-            f"Recipe Name: " + self.name + "\n"
-            f"Ingredients: " + self.ingredients + "\n"
-            f"Cooking Time: " + self.cooking_time + "\n"
-            f"Difficulty: " + self.difficulty + "\n"
+            f"Recipe ID: {self.id}\n"
+            f"Recipe Name: {self.name}\n"
+            f"Ingredients: {self.ingredients}\n"
+            f"Cooking Time: {self.cooking_time}\n"
+            f"Difficulty: {self.difficulty}\n"
             "---------------------------------\n"
         )
 
@@ -53,13 +53,13 @@ class Recipe(Base):
             return "Medium"
         elif (self.cooking_time) >= 10 and (split_ingredients) <= 4:
             return "Intermediate"
-        elif (self.cooking_time) > 10 and (split_ingredients) > 4:
+        elif (self.cooking_time) >= 10 and (split_ingredients) > 4:
             return "Hard"
 
 
-print("Hold on - creating tables...")
+print("\nHold on - creating tables...")
 Base.metadata.create_all(engine)
-print("Tables were successfully created!")
+print("\nTables were successfully created!")
 
 
 # Create a new recipe function
@@ -121,37 +121,22 @@ def create_recipe():
         )
 
         # Validating the user's input
-        if len(name) > 50 or not name.isalnum():
+        if (
+            len(name) > 50
+            or not name.isprintable()
+            or not name.replace(" ", "").isalnum()
+        ):
             raise ValueError(
                 "Invalid input for name. Ensure it is alphanumeric and less than 50 characters."
-            )
-        if not ingredients.replace(", ", "").isalpha():
-            raise ValueError(
-                "Invalid input for ingredients. Ensure it contains only alphabetical characters."
             )
         if not cooking_time >= 0:
             raise ValueError(
                 "Invalid input for cooking time. Ensure it is a positive number."
             )
 
-        # Collect and run a for loop for the ingredients
-        ingredients_input = []
-        num_ingredients = int(input("Enter the number of ingredients in the recipe: "))
-
-        for i in range(num_ingredients):
-            ingredient = input(f"Enter ingredient {i + 1}: ")
-            ingredients_input.append(ingredient)
-            joined_ingredients = ", ".join(
-                ingredients_input
-            )  # Joining the ingredients into a string
-
-            print(f"Ingredients: {joined_ingredients}")
-            print(f"Recipe created successfully!")
-            return ingredients_input
-
         # Recipe model to create a new object
         recipe_entry = Recipe(
-            name=name, cooking_time=cooking_time, ingredients=joined_ingredients
+            name=name, ingredients=ingredients, cooking_time=cooking_time
         )
 
         # Generating a difficulty attribute for the recipe
@@ -229,7 +214,7 @@ def search_by_ingredients():
 
     search_ingredients = []
     for i in selected:
-        if not i.isnumeric() in options:
+        if i not in options:
             print(
                 "\nInvalid input. Only numeric values that match the numbers assigned to the ingredients accepted."
             )
