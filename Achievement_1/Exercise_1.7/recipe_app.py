@@ -63,7 +63,7 @@ print("Tables were successfully created!")
 
 
 # Create a new recipe function
-def create_recipe():
+"""def create_recipe():
     name = input("Enter a name for your recipe: ")
     ingredients = input(
         "Enter the ingredients for your recipe (separated by a comma): "
@@ -107,7 +107,64 @@ def create_recipe():
     # Adding recipe to Database
     session.add(recipe_entry)
     session.commit()
-    print("Recipe has been added successfully.")
+    print("Recipe has been added successfully.")"""
+
+
+def create_recipe():
+    try:
+        name = input("Enter a name for your recipe: ")
+        ingredients = input(
+            "Enter the ingredients for your recipe (separated by a comma): "
+        )
+        cooking_time = int(
+            input("Enter the cooking time for your recipe (in minutes): ")
+        )
+
+        # Validating the user's input
+        if len(name) > 50 or not name.isalnum():
+            raise ValueError(
+                "Invalid input for name. Ensure it is alphanumeric and less than 50 characters."
+            )
+        if not ingredients.replace(", ", "").isalpha():
+            raise ValueError(
+                "Invalid input for ingredients. Ensure it contains only alphabetical characters."
+            )
+        if not cooking_time >= 0:
+            raise ValueError(
+                "Invalid input for cooking time. Ensure it is a positive number."
+            )
+
+        # Collect and run a for loop for the ingredients
+        ingredients_input = []
+        num_ingredients = int(input("Enter the number of ingredients in the recipe: "))
+
+        for i in range(num_ingredients):
+            ingredient = input(f"Enter ingredient {i + 1}: ")
+            ingredients_input.append(ingredient)
+            joined_ingredients = ", ".join(
+                ingredients_input
+            )  # Joining the ingredients into a string
+
+            print(f"Ingredients: {joined_ingredients}")
+            print(f"Recipe created successfully!")
+            return ingredients_input
+
+        # Recipe model to create a new object
+        recipe_entry = Recipe(
+            name=name, cooking_time=cooking_time, ingredients=joined_ingredients
+        )
+
+        # Generating a difficulty attribute for the recipe
+        difficulty = recipe_entry.calc_difficulty()
+        recipe_entry.difficulty = difficulty
+
+        # Adding recipe to Database
+        session.add(recipe_entry)
+        session.commit()
+        print("Recipe has been added successfully.")
+
+    except ValueError as e:
+        print(f"Error: {e}")
 
 
 # Viewing all the recipes function
@@ -298,13 +355,13 @@ def delete_recipe():
 def main_menu():
     print("\nWelcome! This is the Main Menu")
     print("\n--------------------------------------")
-    print("\nPick a number or type quit to exit: ")
+    print("\nPick a number: ")
     print("\n1. Create a Recipe")
     print("\n2. View all Recipes")
     print("\n3. Search for a Recipe")
     print("\n4. Edit a Recipe")
     print("\n5. Delete a Recipe")
-    print("\nquit. Quit application")
+    print("\n6. Quit application")
     print("\n--------------------------------------")
 
     while True:
@@ -319,7 +376,7 @@ def main_menu():
             edit_recipe()
         elif choice == "5":
             delete_recipe()
-        elif choice.lower() == "quit":
+        elif choice == "6":
             break  # exits the loop
         else:
             print(
