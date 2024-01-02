@@ -19,13 +19,13 @@ book_type_choice = (
 # Create your models here.
 class Book(models.Model):
     name = models.CharField(max_length=120)
+    author_name = models.CharField(max_length=120)
     genre = models.CharField(max_length=12, choices=genre_choices, default="classic")
+    pic = models.ImageField(upload_to="books", default="")
     book_type = models.CharField(
         max_length=12, choices=book_type_choice, default="hardcover"
     )
     price = models.FloatField(help_text="in US dollars $")
-    author_name = models.CharField(max_length=120)
 
-
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name

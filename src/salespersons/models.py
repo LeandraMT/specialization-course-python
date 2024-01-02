@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class Salesperson(models.Model):
     username = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=120)
+    pic = models.ImageField(upload_to="salespersons", default="")
     bio = models.TextField(default="no bio...")
 
     def __str__(self):

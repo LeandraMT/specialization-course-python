@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400&display=swap');
+
+:root {
+    --bgPrimaryColor: #dbd8e3;
+    --btnColor: #3a4750;
+
+    --primaryTextColor: #222831;
+    --secondaryTextColor: #eeeeee;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway';
+    background-color: var(--bgPrimaryColor);
+}
+
+.image {
+    position: relative;
+    height: 75vh;
+    overflow: hidden;
+}
+
+.image img {
+    width: 90%;
+    height: auto;
+    position: absolute;
+    top: -21%;
+    left: 5%;
+    z-index: -1;
+}
+
+.main_text {
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    transform: translate(-35%, -45%);
+    color: var(--primaryTextColor);
+}
+
+.main_text h1 {
+    font-size: 3em;
+}
+
+.sub_text h3 {
+    font-size: 1.5em;
+    font-weight: 200;
+    text-align: center;
+    margin: 30px;
+}
+
+.recipes_link_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.recipes_link_btn p {
+    border: none;
+    border-radius: 3px;
+    padding: 14px 7px;
+    background-color: var(--btnColor)
+}
+
+.recipes_link_btn a {
+    text-decoration: none;
+    color: var(--secondaryTextColor);
+}

@@ -1,0 +1,24 @@
+<!--Loading the Static Files from the "static" folder-->
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Recipe Application</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'recipes/css/styles_main.css' %}" />
+    </head>
+    <body>
+        <div class="image">
+            <img src="{% static 'recipes/images/breakfast-homepage-unsplash.jpg' %}" alt="Home" />
+        </div>
+        <div class="main_text">
+            <h1>Welcome to TastyMornings</h1>
+        </div>
+        <div class="sub_text">
+            <h3>An application full of breakfast recipes to start your mornings Fresh and Flavourful!</h3>
+        </div>
+        <div class="recipes_link_btn">
+            <p><a href="{% url 'recipes:recipes-list' %}">Check out the Recipes</a>
+        </div>
+    </body>
+</html>

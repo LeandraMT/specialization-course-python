@@ -1,7 +1,10 @@
+<!--Generate the absolute URL of the static files-->
+{% load static %}
 <!DOCTYPE html>
 <html>
     <title>Bookstore Home</title>
     <body>
-        Welcome to our Bookstore
+        <h1 style="text-align:center">Welcome to our Bookstore</h1>
+        <img src="{% static 'sales/images/bookstore-unsplash.jpg' %}" alt="home" width="700" height="400">
     </body>
 </html>
