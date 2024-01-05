@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.core.validators import EmailValidator
 
 
@@ -9,7 +10,7 @@ class Profile(models.Model):
         validators=[EmailValidator(message="Invalid email address")]
     )
     birthday = models.DateField(null=True, blank=True)
-    pic = models.ImageField(upload_to='profiles', default="")
+    pic = models.ImageField(upload_to="profiles", default="")
     notes = models.TextField()
 
     def __str__(self):

@@ -62,12 +62,13 @@ body {
 
 .return_btn {
     display: flex;
-    justify-content: right;
+    justify-content: space-evenly;
     align-items: center;
     margin-top: 40px;
 }
 
 .return_btn p {
+    margin: 0;
     border: none;
     border-radius: 3px;
     padding: 14px 10px;

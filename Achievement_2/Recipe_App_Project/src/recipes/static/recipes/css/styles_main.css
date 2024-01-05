@@ -31,18 +31,6 @@ body {
     z-index: -1;
 }
 
-.main_text {
-    position: absolute;
-    top: 35%;
-    left: 45%;
-    transform: translate(-35%, -45%);
-    color: var(--primaryTextColor);
-}
-
-.main_text h1 {
-    font-size: 3em;
-}
-
 .sub_text h3 {
     font-size: 1.5em;
     font-weight: 200;
@@ -65,6 +53,25 @@ body {
 }
 
 .recipes_link_btn a {
+    text-decoration: none;
+    color: var(--secondaryTextColor);
+}
+
+.logout_btn {
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.logout_btn p {
+    border: none;
+    border-radius: 3px;
+    padding: 14px 7px;
+    background-color: var(--btnColor)
+}
+
+.logout_btn a {
     text-decoration: none;
     color: var(--secondaryTextColor);
 }
