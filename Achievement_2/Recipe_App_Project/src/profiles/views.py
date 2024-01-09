@@ -91,6 +91,6 @@ def profile_view(request):
     else:
         form = IngredientSearchForm()
 
-    context = {"form": form, "chart_image": chart_image, **user_context}
+    context = {"form": form, "chart_image": None, **user_context}
 
     return render(request, "profile/profile_view.html", context)
