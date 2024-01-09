@@ -1,13 +1,38 @@
+<!--Loading the Static Files from the "static" folder-->
+{% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Profile View</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'profile/css/profile.css' %}" />
     </head>
     <body>
-        <h1>Welcome, {{ profile.name }} </h1>
-        <div>
-            <p>Email: {{ profile.email }}</p>
-            <img src="{{ profile.pic.url}}" alt="Profile picture" />
+        <h1>Welcome, {{ username }} </h1>
+        <div class="email">
+            <p>Email: {{ email }}</p>
+        </div>
+        
+        <div class="form-container">
+            <div class="form">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="search-btn" type="submit">Search</button>
+                </form>
+            </div>
+            <div class="chart">
+                {% if chart_image %}
+                    <img src="data:image/png;base64,{{ chart_image }}" alt="Chart">
+                {% else %}
+                    <p>No chart available</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="buttons">
+            <p><a href="{% url 'recipes:home' %}">Home Page</a></p>
+            <p><a href="{% url 'recipes:recipes-list' %}">Recipes</a>
         </div>
     </body>
 </html>

@@ -9,9 +9,11 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Raleway';
     background-color: var(--bgPrimaryColor);
-    color: var(--primaryTextColor);
 }
 
 .heading {
@@ -82,9 +84,6 @@ body {
 }
 
 .return_btn p:hover {
+    cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-form button {
-    background-color: var(--primaryTextColor);
 }

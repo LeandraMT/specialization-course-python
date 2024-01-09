@@ -16,48 +16,37 @@ body {
     background-color: var(--bgPrimaryColor);
 }
 
-.image {
-    position: relative;
-    height: 75vh;
-    overflow: hidden;
+h1 {
+    font-size: 3em;
+    font-weight: 400;
+    margin-left: 20px;
+    color: var(--primaryTextColor)
 }
 
-.image img {
-    width: 90%;
-    height: auto;
-    position: absolute;
-    top: -21%;
-    left: 5%;
-    z-index: -1;
+.email {
+    font-size: 1.1em;
+    font-weight: 300;
+    width: 20%;
+    margin-left: 20px;
 }
 
-.sub_text h3 {
-    font-size: 1.5em;
-    font-weight: 200;
+.email p {
+    background-color: var(--secondaryTextColor);
+    color: var(--primaryTextColor);
     text-align: center;
-    margin: 30px;
-}
-
-.recipes_link_btn {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 40px;
-}
-
-.recipes_link_btn p {
     border: none;
-    border-radius: 3px;
-    padding: 10px 7px;
-    background-color: var(--btnColor)
+    border-radius: 8px;
+    padding: 10px;
 }
 
-.recipes_link_btn a {
-    text-decoration: none;
-    color: var(--secondaryTextColor);
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
 }
 
-form input {
+input[type=text] {
     width: 100%;
     padding: 10px;
     margin: 8px 0;
@@ -70,7 +59,7 @@ form input {
 .search-btn {
     border: none;
     border-radius: 3px;
-    padding: 6px 8px;
+    padding: 10px 7px;
     background-color: var(--btnColor);
     transition: box-shadow 0.3s ease;
     color: var(--secondaryTextColor);
@@ -81,21 +70,21 @@ form input {
     cursor: pointer;
 }
 
-.logout_btn {
+.buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    margin: 20px;
+    margin-top: 40px;
 }
 
-.logout_btn p {
+.buttons p {
     border: none;
     border-radius: 3px;
     padding: 10px 7px;
     background-color: var(--btnColor)
 }
 
-.logout_btn a {
+.buttons a {
     text-decoration: none;
     color: var(--secondaryTextColor);
 }

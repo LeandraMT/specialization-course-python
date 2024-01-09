@@ -26,17 +26,17 @@ body {
     width: 100%;
     height: auto;
     position: absolute;
-    top: -40%;
+    top: -20%;
     left: 0;
     z-index: -1;
 }
 
 .main_text {
     position: absolute;
-    top: 10%;
-    left: 5%;
-    transform: translate(-10%, -5%);
-    color: var(--primaryTextColor);
+    top: 20%;
+    left: 31%;
+    /*transform: translate(-50%, -50%);*/
+    color: var(--btnColor);
 }
 
 .main_text h1 {
@@ -79,6 +79,10 @@ body {
     transition: box-shadow 0.3s ease;
     color: var(--secondaryTextColor);
     font-size: 1em;
+}
+
+.login_btn button:hover {
+    cursor: pointer;
 }
 
 input[type="text"],
