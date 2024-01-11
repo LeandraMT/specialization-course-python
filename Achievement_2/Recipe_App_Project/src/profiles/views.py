@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from .models import Profile
 from recipes.models import Recipe
 from .forms import IngredientSearchForm
+
+# Data Visualisation
 from io import BytesIO
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -94,3 +95,7 @@ def profile_view(request):
     context = {"form": form, "chart_image": None, **user_context}
 
     return render(request, "profile/profile_view.html", context)
+
+
+def about_me_view(request):
+    return render(request, "profile/about_view.html")

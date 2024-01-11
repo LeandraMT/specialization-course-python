@@ -11,6 +11,8 @@ urlpatterns = [
     path("", login_view, name="login"),
     path("logout/", logout_view, name="logout"),
     path("profile/", include("profiles.urls")),
+    path("add_recipe/", include("recipes.urls")),
+    path("about/", include("profiles.urls")),
 ]
 
 # Extending the urlpatterns parameter to include the media info

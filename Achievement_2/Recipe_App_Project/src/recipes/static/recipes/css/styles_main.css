@@ -23,38 +23,30 @@ body {
 }
 
 .image img {
-    width: 90%;
+    width: 100%;
     height: auto;
     position: absolute;
-    top: -21%;
-    left: 5%;
+    top: -25%;
+    left: 0;
     z-index: -1;
 }
 
-.sub_text h3 {
-    font-size: 1.5em;
-    font-weight: 200;
+.sub_text {
+    position: absolute;
+    font-size: 2em;
+    font-weight: 400;
+    top: 37%;
+    left: 50%;
+    transform: translate(-50%, 37%);
     text-align: center;
-    margin: 30px;
+    color: var(--primaryTextColor);
 }
 
-.recipes_link_btn {
+.form {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     margin-top: 40px;
-}
-
-.recipes_link_btn p {
-    border: none;
-    border-radius: 3px;
-    padding: 10px 7px;
-    background-color: var(--btnColor)
-}
-
-.recipes_link_btn a {
-    text-decoration: none;
-    color: var(--secondaryTextColor);
 }
 
 form input {
@@ -68,6 +60,9 @@ form input {
 }
 
 .search-btn {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 35%;
     border: none;
     border-radius: 3px;
     padding: 6px 8px;
@@ -81,21 +76,21 @@ form input {
     cursor: pointer;
 }
 
-.logout_btn {
+.buttons {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     margin: 20px;
 }
 
-.logout_btn p {
+.buttons p {
     border: none;
     border-radius: 3px;
     padding: 10px 7px;
     background-color: var(--btnColor)
 }
 
-.logout_btn a {
+.buttons a {
     text-decoration: none;
     color: var(--secondaryTextColor);
 }

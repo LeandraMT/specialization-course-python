@@ -11,6 +11,7 @@
         <h1>Welcome, {{ username }} </h1>
         <div class="email">
             <p>Email: {{ email }}</p>
+            <p>Learn a bit more <a href="{% url 'profiles:about-me' %}">About Me</a></p>
         </div>
         
         <div class="form-container">
